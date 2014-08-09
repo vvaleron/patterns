@@ -84,3 +84,40 @@ var kitchen = {
 
 /** И так, у нас есть 4 объекта работа со взаимодействием между которыми, 
  ** могла бы превратиться в неплохое наказание, если бы проходила не через Mediator. **/
+ 
+ 
+  /** example created by myself **/
+ 
+function Mashine(){};
+Mashine.prototype = {
+    constructor: Mashine,
+    getCurrentName: function() {
+        return mediator.mashineStore.currentName;
+    },
+    getAll: function(){
+        return mediator.mashineStore.records;
+    }
+};
+
+function MashineStore() {
+    this.records = [];
+    this.currentName = '';
+};
+MashineStore.prototype = {
+    constructor: MashineStore,
+    addNewName: function(name){
+        if (name) {
+            this.records.push(name);
+            this.currentName = name;            
+        }
+    },
+    getRecordsCount: function() {
+        return this.records.length;
+    }
+};
+
+
+var mediator = {
+    mashine: new Mashine(),
+    mashineStore: new MashineStore()
+};
