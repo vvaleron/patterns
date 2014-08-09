@@ -86,7 +86,7 @@ var kitchen = {
  ** могла бы превратиться в неплохое наказание, если бы проходила не через Mediator. **/
  
  
-  /** example created by myself **/
+  /** more examples **/
  
 function Mashine(){};
 Mashine.prototype = {
