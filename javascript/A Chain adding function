@@ -1,0 +1,22 @@
+var count = 0;
+
+function add(n) {    
+    console.log('-------------- start add ----------, iterration #', count);
+    var fn = function (x) {
+        var res = add(n + x);
+        console.log('inside fn, return add(n + x):', res);
+        return res;
+    };
+
+    fn.valueOf = function () {
+        console.log('inside fn.valueOf, return n:', n);
+        return n;
+    };
+    
+    console.log('inside add, return fn:', fn);
+    console.log('-------------- finish add ----------');
+    count++;
+    return fn;
+};
+
+add(1)(2)(3)(4)(5); // 15
